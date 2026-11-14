@@ -7,6 +7,9 @@ Outputs performance tables, visualization plots, and generates the final submiss
 """
 
 import os
+os.environ["MPLCONFIGDIR"] = os.path.abspath(os.path.join(os.path.dirname(__file__), ".cache", "matplotlib"))
+os.makedirs(os.environ["MPLCONFIGDIR"], exist_ok=True)
+
 import pandas as pd
 from src.data_loader import load_regression_data, load_classification_data
 from src.regression_models import get_regression_models, train_and_evaluate_regression
